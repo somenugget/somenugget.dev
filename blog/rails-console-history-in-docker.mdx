@@ -1,0 +1,27 @@
+# Rails console history in Docker
+
+When you use dockerized Rails app you might guess why you can’t see you rails console commands history or `debug` commands history.
+
+The thing is that `irb` or  `debug` or `pry` by default save their histories in user’s home directory (unlike `byebug` which saves history in project’s root).
+
+Docker will purge those history files between runs so to solve this issue you can explicitly tell the gem to keep file in project’s root.
+
+For `irb` it can be set via `.irbrc` file
+
+```ruby
+IRB.conf[:HISTORY_FILE] = '.irb_history'
+```
+
+For `pry`  via `.pryrc`
+
+```ruby
+Pry.config.history_file = '.pry_history'
+```
+
+For `debug` via `.rdbgrc`
+
+```ruby
+config set history_file '.rdbg_history'
+```
+
+And don’t forget to add these history files to `.gitignore` since they are in your project root now.
