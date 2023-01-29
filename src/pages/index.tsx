@@ -1,16 +1,20 @@
 import * as React from "react"
-import type {HeadFC, PageProps} from "gatsby"
+import type {HeadFC, Node, PageProps} from "gatsby"
 import {graphql} from "gatsby"
 import Layout from "../components/layout";
+import MdxFrontmatter = Queries.MdxFrontmatter;
 
-type Node = {
-  name: string
+type MdxNode = {
+  id: string
+  excerpt: string
+  frontmatter: MdxFrontmatter
+  parent: Node
 }
 
 type Data = {
   data: {
-    allFile: {
-      nodes: Array<Node>
+    allMdx: {
+      nodes: Array<MdxNode>
     }
   }
 }
@@ -18,15 +22,19 @@ type Data = {
 type IndexPageProps = PageProps & Data
 
 const IndexPage: React.FC<IndexPageProps> = (props) => {
-  console.log(props)
+  console.log(props.data.allMdx.nodes)
   return (
     <Layout {...props}>
       <main>
         <h1>Welcome to my Gatsby site!</h1>
         <p>I'm making this by following the Gatsby Tutorial.</p>
         <div className="container">
-          {props.data.allFile.nodes.map((file) => (
-            <p key={file.name}>{file.name}</p>
+          {props.data.allMdx.nodes.map((node) => (
+            <>
+              <h4 key={node.id}>{node.frontmatter.name}</h4>
+              <p>Posted: {node.frontmatter.datePublished}</p>
+              <p>{node.excerpt}</p>
+            </>
           ))}
         </div>
       </main>
@@ -36,9 +44,21 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
 
 export const query = graphql`
   query {
-    allFile(filter: {sourceInstanceName: {eq: "blog"}}) {
+    allMdx(sort: { frontmatter: { datePublished: DESC } }) {
       nodes {
-        name
+        frontmatter {
+          datePublished(formatString: "MMMM D, YYYY")
+          name
+          title
+        }
+        parent {
+          ... on File {
+            name
+          }
+        }
+        id
+        body
+        excerpt
       }
     }
   }
