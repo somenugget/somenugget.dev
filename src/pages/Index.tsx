@@ -6,17 +6,17 @@ import Layout from '../components/Layout'
 
 import MdxFrontmatter = Queries.MdxFrontmatter
 
-type MdxNode = {
+interface MdxNode {
   id: string
   excerpt: string
   frontmatter: MdxFrontmatter
   parent: Node
 }
 
-type Data = {
+interface Data {
   data: {
     allMdx: {
-      nodes: Array<MdxNode>
+      nodes: MdxNode[]
     }
   }
 }
