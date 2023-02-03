@@ -1,8 +1,10 @@
-import * as React from "react"
-import type {HeadFC, Node, PageProps} from "gatsby"
-import {graphql} from "gatsby"
-import Layout from "../components/Layout";
-import MdxFrontmatter = Queries.MdxFrontmatter;
+import * as React from 'react'
+import type { HeadFC, Node, PageProps } from 'gatsby'
+import { graphql } from 'gatsby'
+
+import Layout from '../components/Layout'
+
+import MdxFrontmatter = Queries.MdxFrontmatter
 
 type MdxNode = {
   id: string
