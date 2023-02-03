@@ -1,10 +1,11 @@
 import * as React from 'react'
-import type { HeadFC, Node, PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 
-import MdxFrontmatter = Queries.MdxFrontmatter
-
 import Layout from 'src/components/Layout'
+
+import type { HeadFC, Node, PageProps } from 'gatsby'
+
+import MdxFrontmatter = Queries.MdxFrontmatter
 
 interface MdxNode {
   id: string
