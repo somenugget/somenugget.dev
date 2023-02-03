@@ -14,5 +14,10 @@ module.exports = {
   rules: {
     'multiline-ternary': 'off',
     'react/no-unescaped-entities': 'off'
+  },
+  settings: {
+    'import/resolver': {
+      alias: [['src/components', './src/components']]
+    }
   }
 }
