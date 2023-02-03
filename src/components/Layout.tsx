@@ -3,7 +3,7 @@ import * as React from 'react'
 const Layout: React.FC<any> = ({ children , ...props}) => {
   return (
     <div>
-      <nav>
+      <nav className="text-3xl font-bold">
         My Blog
       </nav>
       <main>
