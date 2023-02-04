@@ -9,10 +9,10 @@ import type { HeadFC } from 'gatsby'
 const IndexPage: React.FC<IndexPageProps> = (props) => {
   return (
     <Layout {...props}>
-      <main>
+      <main className="container">
         <h1>Welcome to my Gatsby site!</h1>
         <p>I'm making this by following the Gatsby Tutorial.</p>
-        <div className="container">
+        <div className="content mt-2">
           {props.data.allMdx.nodes.map((node) => (
             <div key={node.id}>
               <h4>{node.frontmatter.name}</h4>

@@ -9,9 +9,11 @@ import type { HeadFC } from 'gatsby'
 const BlogPost: React.FC<BlogPostPageProps> = ({ data, children }) => {
   return (
     <Layout pageTitle="Super Cool Blog Posts">
-      <h1>{data.mdx.frontmatter.title}</h1>
-      <p>{data.mdx.frontmatter.datePublished}</p>
-      <main>{children}</main>
+      <main className="container content">
+        <h1>{data.mdx.frontmatter.title}</h1>
+        <p>{data.mdx.frontmatter.datePublished}</p>
+        <div>{children}</div>
+      </main>
     </Layout>
   )
 }
