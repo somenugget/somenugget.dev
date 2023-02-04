@@ -1,31 +1,12 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Layout from 'src/components/Layout'
 
-import type { HeadFC, Node, PageProps } from 'gatsby'
-
-import MdxFrontmatter = Queries.MdxFrontmatter
-
-interface MdxNode {
-  id: string
-  excerpt: string
-  frontmatter: MdxFrontmatter
-  parent: Node
-}
-
-interface Data {
-  data: {
-    allMdx: {
-      nodes: MdxNode[]
-    }
-  }
-}
-
-type IndexPageProps = PageProps & Data
+import type { IndexPageProps } from 'src/types'
+import type { HeadFC } from 'gatsby'
 
 const IndexPage: React.FC<IndexPageProps> = (props) => {
-  console.log(props.data.allMdx.nodes)
   return (
     <Layout {...props}>
       <main>
@@ -33,11 +14,12 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
         <p>I'm making this by following the Gatsby Tutorial.</p>
         <div className="container">
           {props.data.allMdx.nodes.map((node) => (
-            <>
-              <h4 key={node.id}>{node.frontmatter.name}</h4>
+            <div key={node.id}>
+              <h4>{node.frontmatter.name}</h4>
               <p>Posted: {node.frontmatter.datePublished}</p>
+              <Link to={`/${node.frontmatter.slug ?? ''}`}>{node.frontmatter.title}</Link>
               <p>{node.excerpt}</p>
-            </>
+            </div>
           ))}
         </div>
       </main>
@@ -53,6 +35,7 @@ export const query = graphql`
           datePublished(formatString: "MMMM D, YYYY")
           name
           title
+          slug
         }
         parent {
           ... on File {
@@ -60,7 +43,6 @@ export const query = graphql`
           }
         }
         id
-        body
         excerpt
       }
     }

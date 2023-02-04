@@ -31,6 +31,10 @@ module.exports = {
           {
             pattern: 'src/components/**',
             group: 'internal'
+          },
+          {
+            pattern: 'src/types.tsx',
+            group: 'internal'
           }
         ],
         pathGroupsExcludedImportTypes: ['builtin', 'type']
