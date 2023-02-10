@@ -1,15 +1,12 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+
+import NavBar from 'src/components/NavBar'
 
 const Layout: React.FC<any> = ({ children }) => {
   return (
     <div>
-      <nav className="container my-5">
-        <h2 className="title is-2">
-          <Link to="/">My Blog</Link>
-        </h2>
-      </nav>
-      <div>{children}</div>
+      <NavBar />
+      <main className="container px-5">{children}</main>
     </div>
   )
 }

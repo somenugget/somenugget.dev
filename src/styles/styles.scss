@@ -1,0 +1,14 @@
+@import "src/styles/bulma";
+
+
+.has-title-font {
+  font-family: "Kanit", "Roboto", "Arial", sans-serif;
+}
+
+.navbar-brand {
+  color: $black-ter;
+
+  &:hover {
+    color: $black-ter;
+  }
+}

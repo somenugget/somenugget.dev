@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 
 import Layout from 'src/components/Layout'
+import PostCard from 'src/components/PostCard'
 
 import type { IndexPageProps } from 'src/types'
 import type { HeadFC } from 'gatsby'
@@ -9,20 +10,21 @@ import type { HeadFC } from 'gatsby'
 const IndexPage: React.FC<IndexPageProps> = (props) => {
   return (
     <Layout {...props}>
-      <main className="container">
-        <h1>Welcome to my Gatsby site!</h1>
-        <p>I'm making this by following the Gatsby Tutorial.</p>
-        <div className="content mt-2">
-          {props.data.allMdx.nodes.map((node) => (
-            <div key={node.id}>
-              <h4>{node.frontmatter.name}</h4>
-              <p>Posted: {node.frontmatter.datePublished}</p>
-              <Link to={`/${node.frontmatter.slug ?? ''}`}>{node.frontmatter.title}</Link>
-              <p>{node.excerpt}</p>
-            </div>
-          ))}
-        </div>
-      </main>
+      <p>
+        A software developer shares their experiences, insights, and knowledge on the
+        world of Ruby on Rails, React.js and others.
+      </p>
+      <div className="mt-5">
+        {props.data.allMdx.nodes.map((node) => (
+          <PostCard
+            key={node.id}
+            slug={node.frontmatter.slug ?? ''}
+            title={node.frontmatter.title ?? ''}
+            datePublished={node.frontmatter.datePublished ?? ''}
+            excerpt={node.excerpt}
+          />
+        ))}
+      </div>
     </Layout>
   )
 }

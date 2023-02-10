@@ -1,1 +1,1 @@
-import './src/styles/bulma.scss'
+import './src/styles/styles.scss'
