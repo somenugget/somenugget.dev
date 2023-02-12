@@ -4,3 +4,10 @@ node_modules/
 public
 blog/test-post*.*
 src/gatsby-types.d.ts
+
+
+.terraform/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
