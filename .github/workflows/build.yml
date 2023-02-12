@@ -1,0 +1,27 @@
+name: Build and Deploy
+on:
+  push:
+    branches: main
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy Gatsby blog
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3.3.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: '18.14.0'
+
+      - name: Install Dependencies
+        run: npm i --omit=dev
+
+      - name: Build
+        run: gatsby build
+
+      - name: Verify build
+        run: ls -la public

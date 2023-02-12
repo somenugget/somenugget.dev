@@ -5,6 +5,5 @@ public
 blog/test-post*.*
 src/gatsby-types.d.ts
 
-
 .terraform/.terraform/*
 
