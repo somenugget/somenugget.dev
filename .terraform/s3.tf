@@ -17,8 +17,8 @@ resource "aws_s3_bucket_policy" "www_bucket" {
   policy = templatefile("templates/s3-policy.json", { bucket = "www.${var.bucket_name}" })
 }
 
-resource "aws_s3_bucket_website_configuration" "www_bucket" {
-  bucket = aws_s3_bucket.www_bucket.id
+resource "aws_s3_bucket_website_configuration" "root_bucket" {
+  bucket = aws_s3_bucket.root_bucket.id
 
   index_document {
     suffix = "index.html"
@@ -63,11 +63,11 @@ resource "aws_s3_bucket_policy" "root_bucket" {
   policy = templatefile("templates/s3-policy.json", { bucket = var.bucket_name })
 }
 
-resource "aws_s3_bucket_website_configuration" "root_bucket" {
-  bucket = aws_s3_bucket.root_bucket.id
+resource "aws_s3_bucket_website_configuration" "www_bucket" {
+  bucket = aws_s3_bucket.www_bucket.id
 
   redirect_all_requests_to {
-    host_name = "www.${var.domain_name}"
+    host_name = var.domain_name
     protocol = "https"
   }
 }
