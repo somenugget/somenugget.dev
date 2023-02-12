@@ -29,19 +29,13 @@ export const query = graphql`
   query {
     allMdx(sort: { frontmatter: { datePublished: DESC } }) {
       nodes {
+        id
+        excerpt
         frontmatter {
           datePublished(formatString: "MMMM D, YYYY")
-          name
           title
           slug
         }
-        parent {
-          ... on File {
-            name
-          }
-        }
-        id
-        excerpt
       }
     }
   }
