@@ -36,6 +36,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
+          AWS_DEFAULT_REGION: 'eu-west-1'
 
       - name: Verify build
         run: ls -la public
