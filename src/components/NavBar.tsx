@@ -3,17 +3,17 @@ import { Link } from 'gatsby'
 
 const NavBar: React.FC<any> = () => {
   return (
-    <nav className="navbar container px-5" role="navigation" aria-label="main navigation">
-      <Link
-        className="navbar-brand is-size-2 has-title-font has-text-weight-semibold"
-        to="/"
-      >
-        Developer notes
-      </Link>
+    <nav className="flex items-center justify-between pb-6 mb-8 border-b-2 border-b-gray">
+      <h6 className="tracking-tight text-gray-900 sm:text-xl">
+        <Link className="" to="/">
+          Some experience, insights, and knowledge on the world of Ruby on Rails, React.js
+          and others
+        </Link>
+      </h6>
 
-      <div id="navbarBasicExample" className="navbar-menu">
+      <div id="navbarBasicExample" className="">
         <div className="navbar-end">
-          <Link to="/about" className="navbar-item">
+          <Link to="/about" className="">
             About me
           </Link>
         </div>

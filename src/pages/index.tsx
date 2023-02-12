@@ -10,11 +10,7 @@ import type { HeadFC } from 'gatsby'
 const IndexPage: React.FC<IndexPageProps> = (props) => {
   return (
     <Layout {...props}>
-      <p>
-        A software developer shares their experiences, insights, and knowledge on the
-        world of Ruby on Rails, React.js and others.
-      </p>
-      <div className="mt-5">
+      <div className="grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
         {props.data.allMdx.nodes.map((node) => (
           <PostCard
             key={node.id}
