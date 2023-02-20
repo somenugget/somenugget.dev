@@ -6,8 +6,18 @@
 
 
 @layer base {
-@import "base";
+  @import "base";
+}
 
+code:not(code[class]) {
+  @apply px-0.5 rounded-sm;
+
+  background-color: #f3f3f3;
+  color: #ab5656;
+}
+
+code[class*="language"] {
+  @apply mb-5 mt-1
 }
 
 

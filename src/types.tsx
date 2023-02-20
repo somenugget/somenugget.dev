@@ -7,7 +7,7 @@ export interface MdxNode {
   excerpt: string
   title: string
   slug: string
-  frontmatter: MdxFrontmatter
+  frontmatter: MdxFrontmatter & { datePublishedFormatted: string }
   parent: Node
 }
 

@@ -10,12 +10,10 @@ const NavBar: React.FC<any> = () => {
         </Link>
       </h6>
 
-      <div id="navbarBasicExample" className="">
-        <div className="navbar-end">
-          <Link to="/about" className="">
-            About me
-          </Link>
-        </div>
+      <div className="shrink-0 ml-10">
+        <Link to="/about" className="">
+          About me
+        </Link>
       </div>
     </nav>
   )
