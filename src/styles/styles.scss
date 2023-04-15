@@ -4,7 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700;800&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-
 @layer base {
   @import "base";
 }
@@ -17,9 +16,8 @@ code:not(code[class]) {
 }
 
 code[class*="language"] {
-  @apply mb-5 mt-1
+  @apply mb-4 mt-1
 }
-
 
 .has-title-font {
   font-family: "Kanit", "Roboto", "Arial", sans-serif;

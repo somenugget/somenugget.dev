@@ -47,7 +47,24 @@ const config: GatsbyConfig = {
       __key: 'blog'
     },
     {
-      resolve: 'gatsby-plugin-mdx'
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1200,
+              linkImagesToOriginal: false
+            }
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff']
+            }
+          }
+        ]
+      }
     }
   ]
 }

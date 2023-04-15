@@ -6,7 +6,7 @@ const NavBar: React.FC<any> = () => {
     <nav className="flex items-center justify-between pb-6 mb-8 border-b-2 border-b-gray">
       <h6 className="tracking-tight text-gray-900 sm:text-xl">
         <Link className="" to="/">
-          Some experience, insights, and knowledge of Ruby on Rails, React.js and others
+          Sharing some experience of Ruby on Rails, React.js and others
         </Link>
       </h6>
 

@@ -11,7 +11,7 @@ The thing is that `irb` or  `debug` or `pry` by default save their histories in 
 Docker will purge those history files between runs so to solve this issue you can explicitly tell the gem to keep file in project’s root.
 
 
-<p className="mt-5">For `irb` it can be set via `.irbrc` file</p>
+For `irb` it can be set via `.irbrc` file
 
 ```ruby
 IRB.conf[:HISTORY_FILE] = '.irb_history'
