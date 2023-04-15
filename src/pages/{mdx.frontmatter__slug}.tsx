@@ -17,7 +17,7 @@ const BlogPost: React.FC<BlogPostPageProps> = ({ data, children }) => {
         </p>
         <h1>{data.mdx.frontmatter.title}</h1>
       </div>
-      <div suppressHydrationWarning>{children}</div>
+      <div>{children}</div>
     </Layout>
   )
 }
